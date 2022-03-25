@@ -1,0 +1,11 @@
+.header-container {
+  @apply
+    /* Default */
+    flex
+    justify-end
+    items-center
+    gap-0.5
+    /* Responsive */
+    sm:gap-3
+    md:gap-6
+}

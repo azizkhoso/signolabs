@@ -2,10 +2,10 @@ import React from 'react';
 
 import Layout from '../components/Layout';
 
-export default function IndexPage() {
+export default function Contact() {
   return (
     <Layout>
-      <h1>Home page</h1>
+      <h1>Contact page</h1>
     </Layout>
   );
 }
