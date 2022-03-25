@@ -31,7 +31,7 @@ export default function MobileMenu({ links, open, handleClose }) {
       <div className="flex items-center w-full p-3">
         <Typography variant="h6" color={pathname === '/' ? 'primary' : 'black'} className="font-bold">
           <Link to="/">
-            KaamSay
+            SignoLabs
           </Link>
         </Typography>
         <IconButton className="ml-auto" onClick={() => handleClose()}>
@@ -39,21 +39,9 @@ export default function MobileMenu({ links, open, handleClose }) {
         </IconButton>
       </div>
       <List>
-        {/* <ListItem>
-          <Link to="/signup">
-            <Button variant="contained">Signup Now</Button>
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Link to="/login">
-            <Typography variant="h6" color={pathname === '/login' ? 'primary' : 'black'}>
-              Login
-            </Typography>
-          </Link>
-        </ListItem> */}
         {
           links.map((item) => (
-            <ListItem>
+            <ListItem key={item.link}>
               <Link to={item.link}>
                 <Typography variant="h6" color={item.link === pathname ? 'primary' : 'black'}>
                   {item.title}
@@ -70,8 +58,8 @@ export default function MobileMenu({ links, open, handleClose }) {
 MobileMenu.propTypes = {
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
-  links: PropTypes.arrayOf({
+  links: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
-  }).isRequired,
+  })).isRequired,
 };

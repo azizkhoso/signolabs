@@ -28,7 +28,7 @@ function Header() {
   ];
   const [isMenuOpen, setMenuOpen] = React.useState(false);
   return (
-    <AppBar position="fixed" elevation={0} sx={{ minHeight: '64px', backgroundColor: 'white' }}>
+    <AppBar position="fixed" elevation={0} sx={{ height: '54px', backgroundColor: 'white' }}>
       <Toolbar>
         <Container maxWidth="xl" disableGutters className={styles.headerContainer}>
           <div className="block md:hidden">
@@ -45,7 +45,7 @@ function Header() {
           </Typography>
           {
             links.map((item) => (
-              <div className="hidden md:block">
+              <div key={item.link} className="hidden md:block">
                 <Link to={item.link}>
                   <Typography className="text-base" color={pathname === item.link ? 'primary' : 'black'}>{item.title}</Typography>
                 </Link>
