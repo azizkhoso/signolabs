@@ -6,12 +6,14 @@ import {
 } from '@mui/material';
 
 import Layout from '../components/Layout';
+import Header from '../components/Header';
 
 import userInterface from '../assets/images/user-interface.png';
 
 export default function Home() {
   return (
     <Layout>
+      <Header pathname="/" />
       <Container maxWidth="lg" className="pt-16">
         <div className="items-center py-6 row lg:py-2">
           <div className="w-full gap-1.5 lg:w-6/12 stack">

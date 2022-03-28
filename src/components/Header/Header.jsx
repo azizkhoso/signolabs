@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Link } from 'gatsby';
 
@@ -18,8 +19,7 @@ import logo from '../../assets/images/signolabs-logo.png';
 
 import * as styles from './Header.module.css';
 
-function Header() {
-  const { pathname } = window.location;
+function Header({ pathname }) {
   const links = [
     { title: 'About', link: '/about' },
     { title: 'Contact', link: '/contact' },
@@ -46,9 +46,11 @@ function Header() {
           {
             links.map((item) => (
               <div key={item.link} className="hidden md:block">
-                <Link to={item.link}>
-                  <Typography className="text-base" color={pathname === item.link ? 'primary' : 'black'}>{item.title}</Typography>
-                </Link>
+                <Typography className="text-base">
+                  <Link to={item.link} getProps={({ isPartiallyCurrent }) => ({ className: isPartiallyCurrent && 'text-primary' })}>
+                    {item.title}
+                  </Link>
+                </Typography>
               </div>
             ))
           }
@@ -57,5 +59,9 @@ function Header() {
     </AppBar>
   );
 }
+
+Header.propTypes = {
+  pathname: PropTypes.string.isRequired,
+};
 
 export default Header;

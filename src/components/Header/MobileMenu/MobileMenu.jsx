@@ -14,8 +14,9 @@ import {
 
 import { Close as CloseIcon } from '@mui/icons-material';
 
-export default function MobileMenu({ links, open, handleClose }) {
-  const { pathname } = window.location;
+export default function MobileMenu({
+  links, open, handleClose, pathname,
+}) {
   return (
     <Drawer
       open={open}
@@ -62,4 +63,5 @@ MobileMenu.propTypes = {
     title: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
   })).isRequired,
+  pathname: PropTypes.string.isRequired,
 };

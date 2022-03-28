@@ -7,8 +7,6 @@ import PropTypes from 'prop-types';
 import { createTheme } from '@mui/material/styles';
 import { StyledEngineProvider, ThemeProvider } from '@mui/material';
 
-import Header from './Header';
-
 import muiTheme from '../../mui-theme';
 
 const theme = createTheme(muiTheme);
@@ -25,7 +23,6 @@ export default function Layout({ children }) {
       </Helmet>
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
-          <Header />
           {children}
         </ThemeProvider>
       </StyledEngineProvider>
